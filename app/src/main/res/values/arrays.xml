@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string-array name="protocol_entries">
+        <item>OpenConnect</item>
+        <item>Palo Alto GlobalProtect</item>
+    </string-array>
+    <string-array name="protocol_values" translatable="false">
+        <item />
+        <item>gp</item>
+    </string-array>
+
     <string-array name="software_token_entries">
         <item>Disabled</item>
         <item>RSA SecurID</item>

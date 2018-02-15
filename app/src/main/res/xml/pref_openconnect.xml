@@ -6,30 +6,36 @@
         <EditTextPreference
             android:key="profile_name"
             android:title="@string/profile_name"
-            android:inputType="text|textNoSuggestions|textCapSentences"
-            android:defaultValue="" />
+            android:inputType="text|textNoSuggestions|textCapSentences" />
         <EditTextPreference
             android:key="server_address"
             android:title="@string/server_address"
             android:dialogMessage="@string/add_profile_hostname_prompt"
-            android:inputType="textUri"
+            android:inputType="textUri" />
+
+
+        <ListPreference
+            android:key="protocol"
+            android:title="@string/protocol"
+            android:dialogTitle="@string/protocol"
+            android:entries="@array/protocol_entries"
+            android:entryValues="@array/protocol_values"
             android:defaultValue="" />
+
+
         <app.openconnect.ShowTextPreference
             android:key="ca_certificate"
-            android:title="@string/ca_certificate"
-            android:defaultValue="" />
+            android:title="@string/ca_certificate" />
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/authentication"
         android:key="pref_key_authentication">
         <app.openconnect.ShowTextPreference
             android:key="user_certificate"
-            android:title="@string/user_certificate"
-            android:defaultValue="" />
+            android:title="@string/user_certificate" />
         <app.openconnect.ShowTextPreference
             android:key="private_key"
-            android:title="@string/private_key"
-            android:defaultValue="" />
+            android:title="@string/private_key" />
         <ListPreference
             android:key="software_token"
             android:title="@string/software_token"
@@ -39,8 +45,7 @@
             android:defaultValue="disabled" />
         <app.openconnect.ShowTextPreference
             android:key="token_string"
-            android:title="@string/token_string"
-            android:defaultValue="" />
+            android:title="@string/token_string" />
         <CheckBoxPreference
             android:key="disable_username_caching"
             android:title="@string/disable_username_caching"
@@ -52,8 +57,7 @@
             android:dialogTitle="@string/clear_saved_passwords"
             android:dialogMessage="@string/clear_saved_passwords_confirm"
             android:negativeButtonText="@string/no"
-            android:positiveButtonText="@string/yes"
-            android:defaultValue="" />
+            android:positiveButtonText="@string/yes" />
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/advanced"
@@ -74,8 +78,7 @@
             android:defaultValue="android" />
         <app.openconnect.ShowTextPreference
             android:key="custom_csd_wrapper"
-            android:title="@string/custom_csd_wrapper"
-            android:defaultValue="" />
+            android:title="@string/custom_csd_wrapper" />
         <ListPreference
             android:key="split_tunnel_mode"
             android:title="@string/split_tunnel_mode"
@@ -87,8 +90,7 @@
             android:key="split_tunnel_networks"
             android:title="@string/split_tunnel_networks"
             android:dialogMessage="@string/split_tunnel_networks_message"
-            android:inputType="textUri|textMultiLine"
-            android:defaultValue="" />
+            android:inputType="textUri|textMultiLine" />
         <CheckBoxPreference
             android:key="disable_xml_post"
             android:title="@string/disable_xml_post"
@@ -109,7 +111,6 @@
             android:title="@string/dpd_value"
             android:dependency="dpd_override"
             android:dialogMessage="@string/dpd_value_message"
-            android:inputType="number"
-            android:defaultValue="" />
+            android:inputType="number" />
     </PreferenceCategory>
 </PreferenceScreen>

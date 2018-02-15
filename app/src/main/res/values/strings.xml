@@ -132,6 +132,9 @@
     <string name="profile_name">Profile name</string>
     <string name="profile_label">Profile:</string>
     <string name="server_address">Server address</string>
+    <string name="protocol">VPN Protocol</string>
+    <string name="protocol_openconnect">Openconnect</string>
+    <string name="protocol_globalprotect">Palo Alto GlobalProtect</string>
     <string name="ca_certificate">CA certificate</string>
     <string name="authentication">Authentication</string>
     <string name="user_certificate">User certificate</string>

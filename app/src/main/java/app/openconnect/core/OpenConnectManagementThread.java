@@ -24,6 +24,19 @@
 
 package app.openconnect.core;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.net.VpnService;
+import android.os.Build;
+import android.os.ParcelFileDescriptor;
+import android.preference.PreferenceManager;
+import android.util.Base64;
+
+import com.stericson.RootTools.execution.CommandCapture;
+import com.stericson.RootTools.execution.Shell;
+
+import org.infradead.libopenconnect.LibOpenConnect;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -38,19 +51,6 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.net.VpnService;
-import android.os.Build;
-import android.os.ParcelFileDescriptor;
-import android.preference.PreferenceManager;
-import android.util.Base64;
-
-import org.infradead.libopenconnect.LibOpenConnect;
-
-import com.stericson.RootTools.execution.CommandCapture;
-import com.stericson.RootTools.execution.Shell;
 
 import app.openconnect.AuthFormHandler;
 import app.openconnect.R;
@@ -464,6 +464,13 @@ public class OpenConnectManagementThread implements Runnable, OpenVPNManagement 
 		mServerAddr = getStringPref("server_address");
 		mOC.setXMLPost(!getBoolPref("disable_xml_post"));
 		mOC.setPFS(getBoolPref("require_pfs"));
+
+
+		s = getStringPref("protocol");
+		if ("gp".equals(s)) {
+			mOC.setProtocol("gp");
+		}
+
 
 		String os = getStringPref("reported_os");
 		mOC.setReportedOS(os);
