@@ -7,3 +7,6 @@
 /captures
 .externalNativeBuild
 .*.sw*
+/external/arm*
+/external/x86*
+/app/src/main/assets/raw/
