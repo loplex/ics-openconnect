@@ -45,10 +45,18 @@ after_success:
 
 deploy:
   skip_cleanup: true
-  provider: releases
-  api_key:
-    secure: iAR6YNT5RHtM0iKgB8O+ttYRVqTClS8sKSjLDZFG/yKFWqMv7NU4KTfTof6SuQDeh2ChinqamKyBDpjDRVkKdGRngQI29cMhLXN6znlGyPu/fsZ2SfhN/9oMC1g/bydYNl4TYIaxaxYK6mbWc7PS19iOBwFWKBzNUphX8Fc+jNQ1I4bcZN+7S/gIMtOLtcmon43L8kEb3XneHGpXZq5fR0l9givD5PQicJdj5DiMUMq5byAS4Ez554lKMywdU4glANnBWHlGdmsS+RF8+qWSjs0My5HOG5T4dFtcOzmNs9qll+3hn8yU1+02I/1CQHhi0RvWLowC1LgkHNLE8Pjci4OOOXD5ILuQX+w77Z+ev29HUWMzZyei5XdIqaq0uTSUutBkzLpCOYXg+2Wedgwiy9ntRQ1i/S6UIhlIjCKupp+qbTzahO+15YQracUxzuHEvl4iV+qJWqsw6Gd+VtoAGv3t3xAhijKAm602ZvGbc498ynoMdLNwIYr7+uEbvYxChCODriY9MfhkNVZjoMti9+Kb6a2vkgF2Ik7Wt5L19fWySC1er0db3tJFopwfpt5HWi2ILSwJYHk/3m7r1sIzn+8igHP+IclhvXfL3mkXHYrTBtyTPs5tms9uwzUIbCYK5r9f1LuXtPca8RtmHEkUiRYP8Eq2RcjBxFgEQ0sO8ec=
-  file: artifacts/ics-openconnect/OpenConnect-debug.apk
-  on:
-    repo: loplex/ics-openconnect-android-gui
-    branch: android-globalprotect-ci
+  - provider: releases
+    api_key:
+      secure: iAR6YNT5RHtM0iKgB8O+ttYRVqTClS8sKSjLDZFG/yKFWqMv7NU4KTfTof6SuQDeh2ChinqamKyBDpjDRVkKdGRngQI29cMhLXN6znlGyPu/fsZ2SfhN/9oMC1g/bydYNl4TYIaxaxYK6mbWc7PS19iOBwFWKBzNUphX8Fc+jNQ1I4bcZN+7S/gIMtOLtcmon43L8kEb3XneHGpXZq5fR0l9givD5PQicJdj5DiMUMq5byAS4Ez554lKMywdU4glANnBWHlGdmsS+RF8+qWSjs0My5HOG5T4dFtcOzmNs9qll+3hn8yU1+02I/1CQHhi0RvWLowC1LgkHNLE8Pjci4OOOXD5ILuQX+w77Z+ev29HUWMzZyei5XdIqaq0uTSUutBkzLpCOYXg+2Wedgwiy9ntRQ1i/S6UIhlIjCKupp+qbTzahO+15YQracUxzuHEvl4iV+qJWqsw6Gd+VtoAGv3t3xAhijKAm602ZvGbc498ynoMdLNwIYr7+uEbvYxChCODriY9MfhkNVZjoMti9+Kb6a2vkgF2Ik7Wt5L19fWySC1er0db3tJFopwfpt5HWi2ILSwJYHk/3m7r1sIzn+8igHP+IclhvXfL3mkXHYrTBtyTPs5tms9uwzUIbCYK5r9f1LuXtPca8RtmHEkUiRYP8Eq2RcjBxFgEQ0sO8ec=
+    file: artifacts/ics-openconnect/OpenConnect-debug.apk
+    on:
+      repo: loplex/ics-openconnect-android-gui
+      branch: android-globalprotect-ci
+  - provider: releases
+    api_key:
+      secure: iAR6YNT5RHtM0iKgB8O+ttYRVqTClS8sKSjLDZFG/yKFWqMv7NU4KTfTof6SuQDeh2ChinqamKyBDpjDRVkKdGRngQI29cMhLXN6znlGyPu/fsZ2SfhN/9oMC1g/bydYNl4TYIaxaxYK6mbWc7PS19iOBwFWKBzNUphX8Fc+jNQ1I4bcZN+7S/gIMtOLtcmon43L8kEb3XneHGpXZq5fR0l9givD5PQicJdj5DiMUMq5byAS4Ez554lKMywdU4glANnBWHlGdmsS+RF8+qWSjs0My5HOG5T4dFtcOzmNs9qll+3hn8yU1+02I/1CQHhi0RvWLowC1LgkHNLE8Pjci4OOOXD5ILuQX+w77Z+ev29HUWMzZyei5XdIqaq0uTSUutBkzLpCOYXg+2Wedgwiy9ntRQ1i/S6UIhlIjCKupp+qbTzahO+15YQracUxzuHEvl4iV+qJWqsw6Gd+VtoAGv3t3xAhijKAm602ZvGbc498ynoMdLNwIYr7+uEbvYxChCODriY9MfhkNVZjoMti9+Kb6a2vkgF2Ik7Wt5L19fWySC1er0db3tJFopwfpt5HWi2ILSwJYHk/3m7r1sIzn+8igHP+IclhvXfL3mkXHYrTBtyTPs5tms9uwzUIbCYK5r9f1LuXtPca8RtmHEkUiRYP8Eq2RcjBxFgEQ0sO8ec=
+    file: artifacts/ics-openconnect/OpenConnect-debug.apk
+    on:
+      repo: loplex/ics-openconnect-android-gui
+      # branch: android-globalprotect-ci
+    draft: true
