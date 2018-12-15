@@ -1,65 +1,65 @@
 language: android
 
 android:
-  components:
-   - tools
-   - platform-tools
-   - build-tools-26.0.2
-   - android-19
+   components:
+      - tools
+      - platform-tools
+      - build-tools-26.0.2
+      - android-19
 
 notifications:
-  email:
-    on_success: change
-    on_failure: always
+   email:
+      on_success: change
+      on_failure: always
 
 before_install:
- # Install NDK + openconnect build deps
- - sudo apt-get update -qq
- - sudo apt-get install -qq build-essential autoconf automake libtool groff expect ant
- - FORCE_PKG=android_ndk ./misc/fetch.sh android-ndk-r16b-linux-x86_64.zip bcdea4f5353773b2ffa85b5a9a2ae35544ce88ec5b507301d8cf6a76b765d901
- - sudo mkdir -p /opt/android-sdk-linux_x86
- - sudo unzip -d /opt/android-sdk-linux_x86 -q android-ndk-r16b-linux-x86_64.zip
+   # Install NDK + openconnect build deps
+   - sudo apt-get update -qq
+   - sudo apt-get install -qq build-essential autoconf automake libtool groff expect ant
+   - FORCE_PKG=android_ndk ./misc/fetch.sh android-ndk-r16b-linux-x86_64.zip bcdea4f5353773b2ffa85b5a9a2ae35544ce88ec5b507301d8cf6a76b765d901
+   - sudo mkdir -p /opt/android-sdk-linux_x86
+   - sudo unzip -d /opt/android-sdk-linux_x86 -q android-ndk-r16b-linux-x86_64.zip
 
 script:
- - make -C external
- - ./gradlew assembleDebug
+   - make -C external
+   - ./gradlew assembleDebug
 
 after_success:
- - mkdir -p artifacts/ics-openconnect/{arm,arm64,x86,x86_64}
- - ln -s artifacts/ics-openconnect out
- - cp app/build/outputs/apk/debug/app-debug.apk out/OpenConnect-debug.apk
- - ln out/OpenConnect-debug.apk out/OpenConnect-debug_$TRAVIS_COMMIT.apk
- - cp app/libs/* out/
- - cp app/src/main/jniLibs/armeabi/* out/arm/
- - cp app/src/main/jniLibs/arm64-v8a/* out/arm64/
- - cp app/src/main/jniLibs/x86/* out/x86/
- - cp app/src/main/jniLibs/x86_64/* out/x86_64/
- # skip directories (will return an error code)
- - cp external/arm/* out/arm/ || true
- - cp external/arm64/* out/arm64/ || true
- - cp external/x86/* out/x86/ || true
- - cp external/x86_64/* out/x86_64/ || true
- - cp external/arm/openconnect/android/arm-linux-androideabi/out/sbin/openconnect out/arm/
- - cp external/arm64/openconnect/android/aarch64-linux-android/out/sbin/openconnect out/arm64/
- - cp external/x86/openconnect/android/i686-linux-android/out/sbin/openconnect out/x86/
- - cp external/x86_64/openconnect/android/x86_64-linux-android/out/sbin/openconnect out/x86_64/
+   - mkdir -p artifacts/ics-openconnect/{arm,arm64,x86,x86_64}
+   - ln -s artifacts/ics-openconnect out
+   - cp app/build/outputs/apk/debug/app-debug.apk out/OpenConnect-debug.apk
+   - ln out/OpenConnect-debug.apk out/OpenConnect-debug_$TRAVIS_COMMIT.apk
+   - cp app/libs/* out/
+   - cp app/src/main/jniLibs/armeabi/* out/arm/
+   - cp app/src/main/jniLibs/arm64-v8a/* out/arm64/
+   - cp app/src/main/jniLibs/x86/* out/x86/
+   - cp app/src/main/jniLibs/x86_64/* out/x86_64/
+   # skip directories (will return an error code)
+   - cp external/arm/* out/arm/ || true
+   - cp external/arm64/* out/arm64/ || true
+   - cp external/x86/* out/x86/ || true
+   - cp external/x86_64/* out/x86_64/ || true
+   - cp external/arm/openconnect/android/arm-linux-androideabi/out/sbin/openconnect out/arm/
+   - cp external/arm64/openconnect/android/aarch64-linux-android/out/sbin/openconnect out/arm64/
+   - cp external/x86/openconnect/android/i686-linux-android/out/sbin/openconnect out/x86/
+   - cp external/x86_64/openconnect/android/x86_64-linux-android/out/sbin/openconnect out/x86_64/
 
 deploy:
- - provider: releases
-   skip_cleanup: true
-   api_key:
-     secure: l6nhLInxQUtgkud7dOsRIEjEJeb0PHuOPXn4/D1W7FEQZ8NA8wueiIxQBlzbiD8ncJCJWOVhKx++Q0LFYuF6a47NcxjeBtvArCVuM8NQeEWhxIF2aR0fh8Sn50qQTiCXU8VIkJyrLJV/bStnnktTTQpKCQJOU4tmHDReB9S6nTUbbGr5rZ7GVc8GhHNzGV3+YZo2qRYi+5nWVS4uP/QEekaXHVAvSStVaVL23vuGDrL3MNPUzulpQ7GLHOt/5G61syzOCxpRSldgWHoWk7K0r/ma9g8mJQSf5FbCY2ZtOoMD4i/nQBq90DjIdrDJfMJWr5/PJS9V7XrfHINUmrYmmqjs+DNkfFbLNqlfQ9w5HAlxdigpJot+1IllCnYLBB3AVTfXAN0YuKuLTUvDP19XGz00bAC0rgYCIGY/eLB1+2NVYq2ZR3wr4MzcEBFbAcHki3x/9ktB3JWoF2d4eDguXUUjIkv9GZJ8ILXNIuJYF/2E7OyM7nTnwl+UAS4TisgLDHFKttZK0vaPrMmVmYsIGRYhJ4QN9YsxuktveyWdEItaOpm7XPKD65NB44XxppROrRXHDItBLzwHu8w3RO6DHVUXa7sYCToFi/wjl6n6FM3gF+LG63ZRWpg9bX3vzsu1Xysjlx6EC7zto57tClCjeySQTUDq4mDYatqucsLrQP4=
-   file: artifacts/ics-openconnect/OpenConnect-debug.apk
-   on:
-     repo: loplex/ics-openconnect-android-gui
-     branch: android-globalprotect-ci
- - provider: releases
-   skip_cleanup: true
-   api_key:
-     secure: l6nhLInxQUtgkud7dOsRIEjEJeb0PHuOPXn4/D1W7FEQZ8NA8wueiIxQBlzbiD8ncJCJWOVhKx++Q0LFYuF6a47NcxjeBtvArCVuM8NQeEWhxIF2aR0fh8Sn50qQTiCXU8VIkJyrLJV/bStnnktTTQpKCQJOU4tmHDReB9S6nTUbbGr5rZ7GVc8GhHNzGV3+YZo2qRYi+5nWVS4uP/QEekaXHVAvSStVaVL23vuGDrL3MNPUzulpQ7GLHOt/5G61syzOCxpRSldgWHoWk7K0r/ma9g8mJQSf5FbCY2ZtOoMD4i/nQBq90DjIdrDJfMJWr5/PJS9V7XrfHINUmrYmmqjs+DNkfFbLNqlfQ9w5HAlxdigpJot+1IllCnYLBB3AVTfXAN0YuKuLTUvDP19XGz00bAC0rgYCIGY/eLB1+2NVYq2ZR3wr4MzcEBFbAcHki3x/9ktB3JWoF2d4eDguXUUjIkv9GZJ8ILXNIuJYF/2E7OyM7nTnwl+UAS4TisgLDHFKttZK0vaPrMmVmYsIGRYhJ4QN9YsxuktveyWdEItaOpm7XPKD65NB44XxppROrRXHDItBLzwHu8w3RO6DHVUXa7sYCToFi/wjl6n6FM3gF+LG63ZRWpg9bX3vzsu1Xysjlx6EC7zto57tClCjeySQTUDq4mDYatqucsLrQP4=
-   file: artifacts/ics-openconnect/OpenConnect-debug_$TRAVIS_COMMIT.apk
-   on:
-     repo: loplex/ics-openconnect-android-gui
-     all_branches: true
-   draft: true
-
+   -  provider: releases
+      skip_cleanup: true
+      api_key:
+         secure: l6nhLInxQUtgkud7dOsRIEjEJeb0PHuOPXn4/D1W7FEQZ8NA8wueiIxQBlzbiD8ncJCJWOVhKx++Q0LFYuF6a47NcxjeBtvArCVuM8NQeEWhxIF2aR0fh8Sn50qQTiCXU8VIkJyrLJV/bStnnktTTQpKCQJOU4tmHDReB9S6nTUbbGr5rZ7GVc8GhHNzGV3+YZo2qRYi+5nWVS4uP/QEekaXHVAvSStVaVL23vuGDrL3MNPUzulpQ7GLHOt/5G61syzOCxpRSldgWHoWk7K0r/ma9g8mJQSf5FbCY2ZtOoMD4i/nQBq90DjIdrDJfMJWr5/PJS9V7XrfHINUmrYmmqjs+DNkfFbLNqlfQ9w5HAlxdigpJot+1IllCnYLBB3AVTfXAN0YuKuLTUvDP19XGz00bAC0rgYCIGY/eLB1+2NVYq2ZR3wr4MzcEBFbAcHki3x/9ktB3JWoF2d4eDguXUUjIkv9GZJ8ILXNIuJYF/2E7OyM7nTnwl+UAS4TisgLDHFKttZK0vaPrMmVmYsIGRYhJ4QN9YsxuktveyWdEItaOpm7XPKD65NB44XxppROrRXHDItBLzwHu8w3RO6DHVUXa7sYCToFi/wjl6n6FM3gF+LG63ZRWpg9bX3vzsu1Xysjlx6EC7zto57tClCjeySQTUDq4mDYatqucsLrQP4=
+      file: artifacts/ics-openconnect/OpenConnect-debug.apk
+      on:
+         repo: loplex/ics-openconnect-android-gui
+         branch: android-globalprotect-ci
+   
+   -  provider: releases
+      skip_cleanup: true
+      api_key:
+         secure: l6nhLInxQUtgkud7dOsRIEjEJeb0PHuOPXn4/D1W7FEQZ8NA8wueiIxQBlzbiD8ncJCJWOVhKx++Q0LFYuF6a47NcxjeBtvArCVuM8NQeEWhxIF2aR0fh8Sn50qQTiCXU8VIkJyrLJV/bStnnktTTQpKCQJOU4tmHDReB9S6nTUbbGr5rZ7GVc8GhHNzGV3+YZo2qRYi+5nWVS4uP/QEekaXHVAvSStVaVL23vuGDrL3MNPUzulpQ7GLHOt/5G61syzOCxpRSldgWHoWk7K0r/ma9g8mJQSf5FbCY2ZtOoMD4i/nQBq90DjIdrDJfMJWr5/PJS9V7XrfHINUmrYmmqjs+DNkfFbLNqlfQ9w5HAlxdigpJot+1IllCnYLBB3AVTfXAN0YuKuLTUvDP19XGz00bAC0rgYCIGY/eLB1+2NVYq2ZR3wr4MzcEBFbAcHki3x/9ktB3JWoF2d4eDguXUUjIkv9GZJ8ILXNIuJYF/2E7OyM7nTnwl+UAS4TisgLDHFKttZK0vaPrMmVmYsIGRYhJ4QN9YsxuktveyWdEItaOpm7XPKD65NB44XxppROrRXHDItBLzwHu8w3RO6DHVUXa7sYCToFi/wjl6n6FM3gF+LG63ZRWpg9bX3vzsu1Xysjlx6EC7zto57tClCjeySQTUDq4mDYatqucsLrQP4=
+      file: artifacts/ics-openconnect/OpenConnect-debug_$TRAVIS_COMMIT.apk
+      on:
+         repo: loplex/ics-openconnect-android-gui
+         all_branches: true
+      draft: true
