@@ -28,6 +28,7 @@ after_success:
  - mkdir -p artifacts/ics-openconnect/{arm,arm64,x86,x86_64}
  - ln -s artifacts/ics-openconnect out
  - cp app/build/outputs/apk/debug/app-debug.apk out/OpenConnect-debug.apk
+ - ln out/OpenConnect-debug.apk out/OpenConnect-debug_$TRAVIS_COMMIT.apk
  - cp app/libs/* out/
  - cp app/src/main/jniLibs/armeabi/* out/arm/
  - cp app/src/main/jniLibs/arm64-v8a/* out/arm64/
@@ -56,8 +57,9 @@ deploy:
    skip_cleanup: true
    api_key:
      secure: l6nhLInxQUtgkud7dOsRIEjEJeb0PHuOPXn4/D1W7FEQZ8NA8wueiIxQBlzbiD8ncJCJWOVhKx++Q0LFYuF6a47NcxjeBtvArCVuM8NQeEWhxIF2aR0fh8Sn50qQTiCXU8VIkJyrLJV/bStnnktTTQpKCQJOU4tmHDReB9S6nTUbbGr5rZ7GVc8GhHNzGV3+YZo2qRYi+5nWVS4uP/QEekaXHVAvSStVaVL23vuGDrL3MNPUzulpQ7GLHOt/5G61syzOCxpRSldgWHoWk7K0r/ma9g8mJQSf5FbCY2ZtOoMD4i/nQBq90DjIdrDJfMJWr5/PJS9V7XrfHINUmrYmmqjs+DNkfFbLNqlfQ9w5HAlxdigpJot+1IllCnYLBB3AVTfXAN0YuKuLTUvDP19XGz00bAC0rgYCIGY/eLB1+2NVYq2ZR3wr4MzcEBFbAcHki3x/9ktB3JWoF2d4eDguXUUjIkv9GZJ8ILXNIuJYF/2E7OyM7nTnwl+UAS4TisgLDHFKttZK0vaPrMmVmYsIGRYhJ4QN9YsxuktveyWdEItaOpm7XPKD65NB44XxppROrRXHDItBLzwHu8w3RO6DHVUXa7sYCToFi/wjl6n6FM3gF+LG63ZRWpg9bX3vzsu1Xysjlx6EC7zto57tClCjeySQTUDq4mDYatqucsLrQP4=
-   file: artifacts/ics-openconnect/OpenConnect-debug.apk
+   file: artifacts/ics-openconnect/OpenConnect-debug_$TRAVIS_COMMIT.apk
    on:
      repo: loplex/ics-openconnect-android-gui
      all_branches: true
    draft: true
+
