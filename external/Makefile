@@ -52,33 +52,56 @@ install: $(INSTALL_ARCH_TARGETS) $(INSTALL_JAR_TARGETS)
 clean:
 	rm -rf $(ARCH_LIST) $(JAR_LIST) $(PKG_LIST)
 
+
 .PHONY: $(INSTALL_JAR_TARGETS)
 $(INSTALL_JAR_TARGETS) : install-jar-% : %
-	echo ">>> INSTALL_JAR_TARGETS $*   [ $(date -Iseconds) ]"
+	@echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	@echo ">>> INSTALL_JAR_TARGETS  $@   ($*)   [ $(shell date -Iseconds) ]"
 	mkdir -p $(JAR_DIR)
 	cp $* $(JAR_DIR)/
+	@echo "<<< INSTALL_JAR_TARGETS  $@   ($*)   [ $(shell date -Iseconds) ]"
+	@echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	@echo
+
 
 .PHONY: $(INSTALL_ARCH_TARGETS)
 $(INSTALL_ARCH_TARGETS) : install-arch-% : arch-%
-	echo ">>> INSTALL_ARCH_TARGETS $*   [ $(date -Iseconds) ]"
+	@echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	@echo ">>> INSTALL_ARCH_TARGETS  $@   ($*)   [ $(shell date -Iseconds) ]"
 	mkdir -p $(JNI_DIR)/$(NDK_ARCH_$*)
 	cp $*/libopenconnect.so $(JNI_DIR)/$(NDK_ARCH_$*)/
 	cp $*/libstoken.so $(JNI_DIR)/$(NDK_ARCH_$*)/
 	mkdir -p $(BIN_DIR)/$(NDK_ARCH_$*)
 	cp $*/curl $(BIN_DIR)/$(NDK_ARCH_$*)/curl-bin
 	cp $*/run_pie $(BIN_DIR)/$(NDK_ARCH_$*)/
+	@echo "<<< INSTALL_ARCH_TARGETS  $@   ($*)   [ $(shell date -Iseconds) ]"
+	@echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	@echo
+
 
 .PHONY: $(ARCH_TARGETS)
 $(ARCH_TARGETS) : arch-% : %/curl %/libstoken.so %/libopenconnect.so
+	@echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	@echo ">>> ARCH_TARGETS  $@   ($*)   [ $(shell date -Iseconds) ]"
+	@echo "<<< ARCH_TARGETS  $@   ($*)   [ $(shell date -Iseconds) ]"
+	@echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	@echo
+
 
 curl/configure:
-	echo ">>> curl/configure $@   [ $(date -Iseconds) ]"
+	@echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	@echo ">>> curl/configure  $@   ($*)   [ $(shell date -Iseconds) ]"
 	mkdir -p curl
 	tar -C curl --strip 1 -Jxf dist/curl-$(CURL_VER).tar.xz
 	touch $@
+	@echo "<<< curl/configure  $@   ($*)   [ $(shell date -Iseconds) ]"
+	@echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	@echo
+
 
 $(ARCH_CURL_TARGETS) : %/curl : %/toolchain/.installed curl/configure
-	echo ">>> ARCH_CURL_TARGETS $*   [ $(date -Iseconds) ]"
+	@echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	@echo ">>> ARCH_CURL_TARGETS  $@   ($*)   [ $(shell date -Iseconds) ]"
 	mkdir -p $*/build-curl $*/out
 	cd $*/build-curl && \
 		$(call set_build_env,$*) $(TOPDIR)/curl/configure \
@@ -91,14 +114,24 @@ $(ARCH_CURL_TARGETS) : %/curl : %/toolchain/.installed curl/configure
 	$(call set_build_env,$*) $(MAKE) -C $*/build-curl install-strip \
 		DESTDIR=$(TOPDIR)/$*/out
 	cp -L $*/out/bin/curl $*/
+	@echo "<<< ARCH_CURL_TARGETS  $@   ($*)   [ $(shell date -Iseconds) ]"
+	@echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	@echo
+
 
 stoken/configure:
-	echo ">>> stoken/configure $@   [ $(date -Iseconds) ]"
+	@echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	@echo ">>> stoken/configure  $@   ($*)   [ $(shell date -Iseconds) ]"
 	cd stoken && bash autogen.sh
 	touch $@
+	@echo "<<< stoken/configure  $@   ($*)   [ $(shell date -Iseconds) ]"
+	@echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	@echo
+
 
 $(ARCH_STOKEN_TARGETS) : %/libstoken.so : %/toolchain/.installed stoken/configure
-	echo ">>> ARCH_STOKEN_TARGETS $*   [ $(date -Iseconds) ]"
+	@echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	@echo ">>> ARCH_STOKEN_TARGETS  $@   ($*)   [ $(shell date -Iseconds) ]"
 	mkdir -p $*/build-stoken $*/out
 	cd $*/build-stoken && \
 		$(call set_build_env,$*) $(TOPDIR)/stoken/configure \
@@ -111,42 +144,72 @@ $(ARCH_STOKEN_TARGETS) : %/libstoken.so : %/toolchain/.installed stoken/configur
 	$(call set_build_env,$*) $(MAKE) -C $*/build-stoken install-strip \
 		DESTDIR=$(TOPDIR)/$*/out
 	cp -L $*/out/lib/libstoken.so $*/
+	@echo "<<< ARCH_STOKEN_TARGETS  $@   ($*)   [ $(shell date -Iseconds) ]"
+	@echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	@echo
+
 
 $(ARCH_OC_TARGETS) : %/libopenconnect.so : .openconnect-sources
-	echo ">>> ARCH_OC_TARGETS $* __ $@   [ $(date -Iseconds) ]"
+	@echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	@echo ">>> ARCH_OC_TARGETS  $@   ($*)   [ $(shell date -Iseconds) ]"
 	rm -rf $*/openconnect
 	mkdir -p $*/openconnect
 	cp -a openconnect $*/
 	$(MAKE) -C $*/openconnect/android ARCH=$* NDK=$(NDK)
 	cp -Lf $*/openconnect/android/$(TRIPLET_$*)/out/lib/libopenconnect.so $@
 	cp -f $*/openconnect/android/$(TRIPLET_$*)/out/sbin/run_pie $*/
+	@echo "<<< ARCH_OC_TARGETS  $@   ($*)   [ $(shell date -Iseconds) ]"
+	@echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	@echo
+
 
 .openconnect-sources:
-	echo ">>> .openconnect-sources $@   [ $(date -Iseconds) ]"
+	@echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	@echo ">>> .openconnect-sources  $@   ($*)   [ $(shell date -Iseconds) ]"
 	$(MAKE) -C openconnect/android sources
 	touch $@
+	@echo "<<< .openconnect-sources  $@   ($*)   [ $(shell date -Iseconds) ]"
+	@echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	@echo
+
 
 # use openconnect to run make-standalone-toolchain.sh and install
 # GnuTLS/nettle into the sysroot for us
 $(ARCH_TOOLCHAIN_TARGETS) : %/toolchain/.installed : %/libopenconnect.so
-	echo ">>> ARCH_TOOLCHAIN_TARGETS $* __ $@   [ $(date -Iseconds) ]"
+	@echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	@echo ">>> ARCH_TOOLCHAIN_TARGETS  $@   ($*)   [ $(shell date -Iseconds) ]"
 	ln -sf openconnect/android/$(TRIPLET_$*)/toolchain $*/
 	touch $@
+	@echo "<<< ARCH_TOOLCHAIN_TARGETS  $@   ($*)   [ $(shell date -Iseconds) ]"
+	@echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	@echo
+
 
 openconnect-wrapper.jar:
-	echo ">>> openconnect-wrapper.jar $@   [ $(date -Iseconds) ]"
+	@echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	@echo ">>> openconnect-wrapper.jar  $@   ($*)   [ $(shell date -Iseconds) ]"
 	cd openconnect/java && ant
 	cp openconnect/java/dist/$@ .
+	@echo "<<< openconnect-wrapper.jar  $@   ($*)   [ $(shell date -Iseconds) ]"
+	@echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	@echo
+
 
 stoken-wrapper.jar:
-	echo ">>> stoken-wrapper.jar $@   [ $(date -Iseconds) ]"
+	@echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	@echo ">>> stoken-wrapper.jar  $@   ($*)   [ $(shell date -Iseconds) ]"
 	cd stoken/java && ant
 	cp stoken/java/dist/$@ .
+	@echo "<<< stoken-wrapper.jar  $@   ($*)   [ $(shell date -Iseconds) ]"
+	@echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	@echo
+
 
 # note: this skips curl and libstoken as they rarely change
 .PHONY: refresh
 refresh:
-	echo ">>> refresh   [ $(date -Iseconds) ]"
+	@echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+	@echo ">>> refresh  $@   ($*)   [ $(shell date -Iseconds) ]"
 	cd openconnect && \
 		git remote update -p && \
 		git checkout -f origin/master
@@ -155,4 +218,7 @@ refresh:
 			"external: Sync with openconnect rev $$rev"
 	$(MAKE) clean
 	$(MAKE) install
+	@echo "<<< refresh  $@   ($*)   [ $(shell date -Iseconds) ]"
+	@echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+	@echo
 
