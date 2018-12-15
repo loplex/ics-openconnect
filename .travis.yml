@@ -58,4 +58,5 @@ deploy:
    file: artifacts/ics-openconnect/OpenConnect-debug.apk
    on:
      repo: loplex/ics-openconnect-android-gui
+     all_branches: true
    draft: true
