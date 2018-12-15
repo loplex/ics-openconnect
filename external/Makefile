@@ -54,11 +54,13 @@ clean:
 
 .PHONY: $(INSTALL_JAR_TARGETS)
 $(INSTALL_JAR_TARGETS) : install-jar-% : %
+	echo ">>> INSTALL_JAR_TARGETS $*   [ $(date -Iseconds) ]"
 	mkdir -p $(JAR_DIR)
 	cp $* $(JAR_DIR)/
 
 .PHONY: $(INSTALL_ARCH_TARGETS)
 $(INSTALL_ARCH_TARGETS) : install-arch-% : arch-%
+	echo ">>> INSTALL_ARCH_TARGETS $*   [ $(date -Iseconds) ]"
 	mkdir -p $(JNI_DIR)/$(NDK_ARCH_$*)
 	cp $*/libopenconnect.so $(JNI_DIR)/$(NDK_ARCH_$*)/
 	cp $*/libstoken.so $(JNI_DIR)/$(NDK_ARCH_$*)/
@@ -70,11 +72,13 @@ $(INSTALL_ARCH_TARGETS) : install-arch-% : arch-%
 $(ARCH_TARGETS) : arch-% : %/curl %/libstoken.so %/libopenconnect.so
 
 curl/configure:
+	echo ">>> curl/configure $@   [ $(date -Iseconds) ]"
 	mkdir -p curl
 	tar -C curl --strip 1 -Jxf dist/curl-$(CURL_VER).tar.xz
 	touch $@
 
 $(ARCH_CURL_TARGETS) : %/curl : %/toolchain/.installed curl/configure
+	echo ">>> ARCH_CURL_TARGETS $*   [ $(date -Iseconds) ]"
 	mkdir -p $*/build-curl $*/out
 	cd $*/build-curl && \
 		$(call set_build_env,$*) $(TOPDIR)/curl/configure \
@@ -89,10 +93,12 @@ $(ARCH_CURL_TARGETS) : %/curl : %/toolchain/.installed curl/configure
 	cp -L $*/out/bin/curl $*/
 
 stoken/configure:
+	echo ">>> stoken/configure $@   [ $(date -Iseconds) ]"
 	cd stoken && bash autogen.sh
 	touch $@
 
 $(ARCH_STOKEN_TARGETS) : %/libstoken.so : %/toolchain/.installed stoken/configure
+	echo ">>> ARCH_STOKEN_TARGETS $*   [ $(date -Iseconds) ]"
 	mkdir -p $*/build-stoken $*/out
 	cd $*/build-stoken && \
 		$(call set_build_env,$*) $(TOPDIR)/stoken/configure \
@@ -107,6 +113,7 @@ $(ARCH_STOKEN_TARGETS) : %/libstoken.so : %/toolchain/.installed stoken/configur
 	cp -L $*/out/lib/libstoken.so $*/
 
 $(ARCH_OC_TARGETS) : %/libopenconnect.so : .openconnect-sources
+	echo ">>> ARCH_OC_TARGETS $* __ $@   [ $(date -Iseconds) ]"
 	rm -rf $*/openconnect
 	mkdir -p $*/openconnect
 	cp -a openconnect $*/
@@ -115,26 +122,31 @@ $(ARCH_OC_TARGETS) : %/libopenconnect.so : .openconnect-sources
 	cp -f $*/openconnect/android/$(TRIPLET_$*)/out/sbin/run_pie $*/
 
 .openconnect-sources:
+	echo ">>> .openconnect-sources $@   [ $(date -Iseconds) ]"
 	$(MAKE) -C openconnect/android sources
 	touch $@
 
 # use openconnect to run make-standalone-toolchain.sh and install
 # GnuTLS/nettle into the sysroot for us
 $(ARCH_TOOLCHAIN_TARGETS) : %/toolchain/.installed : %/libopenconnect.so
+	echo ">>> ARCH_TOOLCHAIN_TARGETS $* __ $@   [ $(date -Iseconds) ]"
 	ln -sf openconnect/android/$(TRIPLET_$*)/toolchain $*/
 	touch $@
 
 openconnect-wrapper.jar:
+	echo ">>> openconnect-wrapper.jar $@   [ $(date -Iseconds) ]"
 	cd openconnect/java && ant
 	cp openconnect/java/dist/$@ .
 
 stoken-wrapper.jar:
+	echo ">>> stoken-wrapper.jar $@   [ $(date -Iseconds) ]"
 	cd stoken/java && ant
 	cp stoken/java/dist/$@ .
 
 # note: this skips curl and libstoken as they rarely change
 .PHONY: refresh
 refresh:
+	echo ">>> refresh   [ $(date -Iseconds) ]"
 	cd openconnect && \
 		git remote update -p && \
 		git checkout -f origin/master
@@ -143,3 +155,4 @@ refresh:
 			"external: Sync with openconnect rev $$rev"
 	$(MAKE) clean
 	$(MAKE) install
+
