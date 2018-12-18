@@ -22,7 +22,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.fragments;
+package app.openconnect_gp.fragments;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -53,18 +53,18 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import app.openconnect.R;
-import app.openconnect.VpnProfile;
-import app.openconnect.core.FragCache;
-import app.openconnect.core.ProfileManager;
+import app.openconnect_gp.R;
+import app.openconnect_gp.VpnProfile;
+import app.openconnect_gp.core.FragCache;
+import app.openconnect_gp.core.ProfileManager;
 
 public class TokenDiagFragment extends Fragment {
 
 	public static final String TAG = "OpenConnect";
 
-	public static final String EXTRA_UUID = "app.openconnect.UUID";
-	public static final String EXTRA_PIN = "app.openconnect.PIN";
-	public static final String EXTRA_PIN_PROMPTED = "app.openconnect.PIN_PROMPTED";
+	public static final String EXTRA_UUID = "app.openconnect_gp.UUID";
+	public static final String EXTRA_PIN = "app.openconnect_gp.PIN";
+	public static final String EXTRA_PIN_PROMPTED = "app.openconnect_gp.PIN_PROMPTED";
 
 	private LibStoken mStoken;
 	private TextView mTokencode;

@@ -24,7 +24,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.fragments;
+package app.openconnect_gp.fragments;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -55,15 +55,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import app.openconnect.ConnectionEditorActivity;
-import app.openconnect.R;
-import app.openconnect.VpnProfile;
-import app.openconnect.api.GrantPermissionsActivity;
-import app.openconnect.core.FragCache;
-import app.openconnect.core.OpenConnectManagementThread;
-import app.openconnect.core.OpenVpnService;
-import app.openconnect.core.ProfileManager;
-import app.openconnect.core.VPNConnector;
+import app.openconnect_gp.ConnectionEditorActivity;
+import app.openconnect_gp.R;
+import app.openconnect_gp.VpnProfile;
+import app.openconnect_gp.api.GrantPermissionsActivity;
+import app.openconnect_gp.core.FragCache;
+import app.openconnect_gp.core.OpenConnectManagementThread;
+import app.openconnect_gp.core.OpenVpnService;
+import app.openconnect_gp.core.ProfileManager;
+import app.openconnect_gp.core.VPNConnector;
 
 public class VPNProfileList extends ListFragment {
 

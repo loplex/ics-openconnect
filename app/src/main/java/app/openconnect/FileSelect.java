@@ -23,7 +23,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect;
+package app.openconnect_gp;
 
 
 import java.io.File;
@@ -43,17 +43,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Base64;
-import app.openconnect.fragments.FileSelectionFragment;
-import app.openconnect.fragments.InlineFileTab;
+import app.openconnect_gp.fragments.FileSelectionFragment;
+import app.openconnect_gp.fragments.InlineFileTab;
 
 public class FileSelect extends Activity {
 	public static final String RESULT_DATA = "RESULT_PATH";
 	public static final String START_DATA = "START_DATA";
 	public static final String WINDOW_TITLE = "WINDOW_TILE";
-	public static final String NO_INLINE_SELECTION = "app.openconnect.NO_INLINE_SELECTION";
-	public static final String FORCE_INLINE_SELECTION = "app.openconnect.FORCE_INLINE_SELECTION";
-	public static final String SHOW_CLEAR_BUTTON = "app.openconnect.SHOW_CLEAR_BUTTON";
-	public static final String DO_BASE64_ENCODE = "app.openconnect.BASE64ENCODE";
+	public static final String NO_INLINE_SELECTION = "app.openconnect_gp.NO_INLINE_SELECTION";
+	public static final String FORCE_INLINE_SELECTION = "app.openconnect_gp.FORCE_INLINE_SELECTION";
+	public static final String SHOW_CLEAR_BUTTON = "app.openconnect_gp.SHOW_CLEAR_BUTTON";
+	public static final String DO_BASE64_ENCODE = "app.openconnect_gp.BASE64ENCODE";
 
 	private static final int MAX_FILE_LEN = 32768;
 

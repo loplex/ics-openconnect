@@ -22,7 +22,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect;
+package app.openconnect_gp;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ import java.util.List;
 
 import org.infradead.libopenconnect.LibOpenConnect;
 
-import app.openconnect.core.UserDialog;
+import app.openconnect_gp.core.UserDialog;
 
 import android.app.AlertDialog;
 import android.content.Context;

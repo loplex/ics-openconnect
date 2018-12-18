@@ -22,7 +22,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.core;
+package app.openconnect_gp.core;
 
 import org.infradead.libopenconnect.LibOpenConnect.VPNStats;
 
@@ -35,8 +35,8 @@ import android.content.ServiceConnection;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
-import app.openconnect.R;
-import app.openconnect.core.OpenVpnService.LocalBinder;
+import app.openconnect_gp.R;
+import app.openconnect_gp.core.OpenVpnService.LocalBinder;
 
 public abstract class VPNConnector {
 

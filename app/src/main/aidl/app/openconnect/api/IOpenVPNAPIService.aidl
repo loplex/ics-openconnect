@@ -1,8 +1,8 @@
 // IOpenVPNAPIService.aidl
-package app.openconnect.api;
+package app.openconnect_gp.api;
 
-import app.openconnect.api.APIVpnProfile;
-import app.openconnect.api.IOpenVPNStatusCallback; 
+import app.openconnect_gp.api.APIVpnProfile;
+import app.openconnect_gp.api.IOpenVPNStatusCallback;
 
 import android.content.Intent;
 import android.os.ParcelFileDescriptor;

@@ -22,7 +22,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.core;
+package app.openconnect_gp.core;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

@@ -23,14 +23,14 @@
  * OpenSSL library.
  */
 
-package app.openconnect;
+package app.openconnect_gp;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import app.openconnect.api.GrantPermissionsActivity;
-import app.openconnect.core.ProfileManager;
+import app.openconnect_gp.api.GrantPermissionsActivity;
+import app.openconnect_gp.core.ProfileManager;
 
 
 public class OnBootReceiver extends BroadcastReceiver {

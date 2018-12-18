@@ -22,7 +22,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect;
+package app.openconnect_gp;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -45,15 +45,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import app.openconnect.core.AssetExtractor;
-import app.openconnect.core.ProfileManager;
+import app.openconnect_gp.core.AssetExtractor;
+import app.openconnect_gp.core.ProfileManager;
 import org.stoken.LibStoken;
 
 public class TokenImportActivity extends Activity {
 
 	public static final String TAG = "OpenConnect";
 
-	public static final String EXTRA_UUID = "app.openconnect.UUID";
+	public static final String EXTRA_UUID = "app.openconnect_gp.UUID";
 
 	private static final int ALERT_NONE = 0;
 	private static final int ALERT_BAD_TOKEN = 1;

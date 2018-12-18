@@ -11,11 +11,12 @@ dependencies under external/ have their own licenses:
  - nettle: LGPLv2.1+
  - liboath: LGPLv2.1+
 
-OpenConnect for Android (app.openconnect) is licensed under GPLv2+ with an
+OpenConnect for Android (app.openconnect_gp) is licensed under GPLv2+ with an
 OpenSSL linking exception.
 
 Copyright (c) 2012-2013, Arne Schwabe
 Copyright (c) 2013-2014, Kevin Cernekee
+Copyright (c) 2018, Martin Lopatář
  All rights reserved.
 
 This program is free software; you can redistribute it and/or

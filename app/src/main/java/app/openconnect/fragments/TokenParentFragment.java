@@ -22,7 +22,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.fragments;
+package app.openconnect_gp.fragments;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,9 +39,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import app.openconnect.R;
-import app.openconnect.VpnProfile;
-import app.openconnect.core.ProfileManager;
+import app.openconnect_gp.R;
+import app.openconnect_gp.VpnProfile;
+import app.openconnect_gp.core.ProfileManager;
 
 public class TokenParentFragment extends Fragment {
 

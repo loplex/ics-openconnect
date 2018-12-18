@@ -23,7 +23,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.fragments;
+package app.openconnect_gp.fragments;
 import java.io.File;
 import java.util.Map;
 
@@ -46,9 +46,9 @@ import android.preference.PreferenceManager;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceFragment;
-import app.openconnect.R;
-import app.openconnect.api.ExternalAppDatabase;
-import app.openconnect.core.DeviceStateReceiver;
+import app.openconnect_gp.R;
+import app.openconnect_gp.api.ExternalAppDatabase;
+import app.openconnect_gp.core.DeviceStateReceiver;
 
 public class GeneralSettings extends PreferenceFragment
 		implements OnPreferenceClickListener, OnClickListener, OnSharedPreferenceChangeListener {

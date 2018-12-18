@@ -24,7 +24,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect;
+package app.openconnect_gp;
 
 import java.util.ArrayList;
 
@@ -34,10 +34,10 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import app.openconnect.core.OpenConnectManagementThread;
-import app.openconnect.core.OpenVpnService;
-import app.openconnect.core.VPNConnector;
-import app.openconnect.fragments.*;
+import app.openconnect_gp.core.OpenConnectManagementThread;
+import app.openconnect_gp.core.OpenVpnService;
+import app.openconnect_gp.core.VPNConnector;
+import app.openconnect_gp.fragments.*;
 
 public class MainActivity extends Activity {
 

@@ -23,7 +23,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.core;
+package app.openconnect_gp.core;
 
 import java.net.InetSocketAddress;
 import java.net.MalformedURLException;
@@ -34,8 +34,8 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
 
-import app.openconnect.R;
-import app.openconnect.VpnProfile;
+import app.openconnect_gp.R;
+import app.openconnect_gp.VpnProfile;
 
 public class ProxyDetection {
 	static SocketAddress detectProxy(VpnProfile vp) {

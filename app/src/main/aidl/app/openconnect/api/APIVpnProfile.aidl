@@ -1,3 +1,3 @@
-package app.openconnect.api;
+package app.openconnect_gp.api;
 
 parcelable APIVpnProfile;

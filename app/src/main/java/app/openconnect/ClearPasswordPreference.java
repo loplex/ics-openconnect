@@ -22,7 +22,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect;
+package app.openconnect_gp;
 
 import java.util.Map;
 

@@ -23,7 +23,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.api;
+package app.openconnect_gp.api;
 
 import java.lang.ref.WeakReference;
 import java.util.LinkedList;
@@ -44,11 +44,11 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
-import app.openconnect.VpnProfile;
-import app.openconnect.core.OpenVPN.ConnectionStatus;
-import app.openconnect.core.OpenVpnService;
-import app.openconnect.core.OpenVpnService.LocalBinder;
-import app.openconnect.core.ProfileManager;
+import app.openconnect_gp.VpnProfile;
+import app.openconnect_gp.core.OpenVPN.ConnectionStatus;
+import app.openconnect_gp.core.OpenVpnService;
+import app.openconnect_gp.core.OpenVpnService.LocalBinder;
+import app.openconnect_gp.core.ProfileManager;
 
 public class ExternalOpenVPNService extends Service {
 
@@ -131,8 +131,8 @@ public class ExternalOpenVPNService extends Service {
 
 			/*
 			Intent shortVPNIntent = new Intent(Intent.ACTION_MAIN);
-			shortVPNIntent.setClass(getBaseContext(),app.openconnect.LaunchVPN.class);
-			shortVPNIntent.putExtra(app.openconnect.LaunchVPN.EXTRA_KEY,profileUUID);
+			shortVPNIntent.setClass(getBaseContext(),app.openconnect_gp.LaunchVPN.class);
+			shortVPNIntent.putExtra(app.openconnect_gp.LaunchVPN.EXTRA_KEY,profileUUID);
 			shortVPNIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			startActivity(shortVPNIntent);
 			*/

@@ -23,7 +23,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect;
+package app.openconnect_gp;
 
 import java.io.File;
 import java.io.FileInputStream;

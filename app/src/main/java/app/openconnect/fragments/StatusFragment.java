@@ -22,7 +22,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.fragments;
+package app.openconnect_gp.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -36,10 +36,10 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import app.openconnect.R;
-import app.openconnect.core.OpenConnectManagementThread;
-import app.openconnect.core.OpenVpnService;
-import app.openconnect.core.VPNConnector;
+import app.openconnect_gp.R;
+import app.openconnect_gp.core.OpenConnectManagementThread;
+import app.openconnect_gp.core.OpenVpnService;
+import app.openconnect_gp.core.VPNConnector;
 
 import org.infradead.libopenconnect.LibOpenConnect;
 

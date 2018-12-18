@@ -22,7 +22,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect;
+package app.openconnect_gp;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -33,9 +33,9 @@ public class FragActivity extends Activity {
 
 	public static final String TAG = "OpenConnect";
 
-	public static final String EXTRA_FRAGMENT_NAME = "app.openconnect.fragment_name";
+	public static final String EXTRA_FRAGMENT_NAME = "app.openconnect_gp.fragment_name";
 
-	public static final String FRAGMENT_PREFIX = "app.openconnect.fragments.";
+	public static final String FRAGMENT_PREFIX = "app.openconnect_gp.fragments.";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

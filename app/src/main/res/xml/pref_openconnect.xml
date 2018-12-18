@@ -23,17 +23,17 @@
             android:defaultValue="" />
 
 
-        <app.openconnect.ShowTextPreference
+        <app.openconnect_gp.ShowTextPreference
             android:key="ca_certificate"
             android:title="@string/ca_certificate" />
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/authentication"
         android:key="pref_key_authentication">
-        <app.openconnect.ShowTextPreference
+        <app.openconnect_gp.ShowTextPreference
             android:key="user_certificate"
             android:title="@string/user_certificate" />
-        <app.openconnect.ShowTextPreference
+        <app.openconnect_gp.ShowTextPreference
             android:key="private_key"
             android:title="@string/private_key" />
         <ListPreference
@@ -43,7 +43,7 @@
             android:entries="@array/software_token_entries"
             android:entryValues="@array/software_token_values"
             android:defaultValue="disabled" />
-        <app.openconnect.ShowTextPreference
+        <app.openconnect_gp.ShowTextPreference
             android:key="token_string"
             android:title="@string/token_string" />
         <CheckBoxPreference
@@ -51,7 +51,7 @@
             android:title="@string/disable_username_caching"
             android:summary="@string/disable_username_caching_summary"
             android:defaultValue="false" />
-        <app.openconnect.ClearPasswordPreference
+        <app.openconnect_gp.ClearPasswordPreference
             android:key="clear_saved_passwords"
             android:title="@string/clear_saved_passwords"
             android:dialogTitle="@string/clear_saved_passwords"
@@ -76,7 +76,7 @@
             android:entries="@array/reported_os_entries"
             android:entryValues="@array/reported_os_values"
             android:defaultValue="android" />
-        <app.openconnect.ShowTextPreference
+        <app.openconnect_gp.ShowTextPreference
             android:key="custom_csd_wrapper"
             android:title="@string/custom_csd_wrapper" />
         <ListPreference

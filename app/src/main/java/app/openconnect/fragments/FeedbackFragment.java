@@ -22,7 +22,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.fragments;
+package app.openconnect_gp.fragments;
 
 import java.util.Calendar;
 
@@ -42,13 +42,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import app.openconnect.FragActivity;
-import app.openconnect.R;
+import app.openconnect_gp.FragActivity;
+import app.openconnect_gp.R;
 
 public class FeedbackFragment extends Fragment {
 
 	public static final String TAG = "OpenConnect";
-	public static final String marketURI = "market://details?id=app.openconnect";
+	// TODO: update link ???
+	public static final String marketURI = "market://details?id=app.openconnect_gp";
 
 	/* ask for feedback exactly once, after NAGDAYS && NAGUSES */
 	private static final int nagDays = 14;

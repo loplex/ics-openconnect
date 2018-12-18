@@ -22,9 +22,9 @@
  * OpenSSL library.
  */
 
-package app.openconnect.core;
+package app.openconnect_gp.core;
 
-import app.openconnect.R;
+import app.openconnect_gp.R;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;

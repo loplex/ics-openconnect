@@ -22,7 +22,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect;
+package app.openconnect_gp;
 
 import org.acra.ACRA;
 import org.acra.ErrorReporter;
@@ -34,9 +34,9 @@ import org.acra.sender.HttpSender;
 import org.acra.sender.ReportSenderException;
 
 import android.content.pm.PackageManager;
-import app.openconnect.core.FragCache;
-import app.openconnect.core.ProfileManager;
-import app.openconnect.core.VPNLog;
+import app.openconnect_gp.core.FragCache;
+import app.openconnect_gp.core.ProfileManager;
+import app.openconnect_gp.core.VPNLog;
 
 @ReportsCrashes(
 		mode = ReportingInteractionMode.DIALOG,

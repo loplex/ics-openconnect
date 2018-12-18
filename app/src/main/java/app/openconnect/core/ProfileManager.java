@@ -22,7 +22,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.core;
+package app.openconnect_gp.core;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.UUID;
 
-import app.openconnect.VpnProfile;
+import app.openconnect_gp.VpnProfile;
 
 import android.app.Activity;
 import android.content.Context;

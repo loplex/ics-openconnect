@@ -22,7 +22,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.fragments;
+package app.openconnect_gp.fragments;
 
 import org.acra.ACRA;
 import org.acra.ACRAConfiguration;
@@ -32,8 +32,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
-import app.openconnect.FragActivity;
-import app.openconnect.R;
+import app.openconnect_gp.FragActivity;
+import app.openconnect_gp.R;
 
 public class CommonMenu {
 

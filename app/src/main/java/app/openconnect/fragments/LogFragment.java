@@ -24,7 +24,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.fragments;
+package app.openconnect_gp.fragments;
 
 import android.app.Activity;
 import android.app.ListFragment;
@@ -46,12 +46,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemLongClickListener;
-import app.openconnect.R;
-import app.openconnect.core.OpenConnectManagementThread;
-import app.openconnect.core.OpenVpnService;
-import app.openconnect.core.VPNConnector;
-import app.openconnect.core.VPNLog;
-import app.openconnect.core.VPNLog.LogArrayAdapter;
+import app.openconnect_gp.R;
+import app.openconnect_gp.core.OpenConnectManagementThread;
+import app.openconnect_gp.core.OpenVpnService;
+import app.openconnect_gp.core.VPNConnector;
+import app.openconnect_gp.core.VPNLog;
+import app.openconnect_gp.core.VPNLog.LogArrayAdapter;
 
 public class LogFragment extends ListFragment {
 	public static final String TAG = "OpenConnect";

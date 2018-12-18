@@ -23,13 +23,13 @@
  * OpenSSL library.
  */
 
-package app.openconnect.core;
+package app.openconnect_gp.core;
 
 import android.content.Context;
 import android.text.TextUtils;
 
-import app.openconnect.R;
-import app.openconnect.VpnProfile;
+import app.openconnect_gp.R;
+import app.openconnect_gp.VpnProfile;
 import org.spongycastle.util.io.pem.PemObject;
 import org.spongycastle.util.io.pem.PemReader;
 

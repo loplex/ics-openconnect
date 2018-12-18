@@ -22,7 +22,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.core;
+package app.openconnect_gp.core;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -52,9 +52,9 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import app.openconnect.AuthFormHandler;
-import app.openconnect.R;
-import app.openconnect.VpnProfile;
+import app.openconnect_gp.AuthFormHandler;
+import app.openconnect_gp.R;
+import app.openconnect_gp.VpnProfile;
 
 public class OpenConnectManagementThread implements Runnable, OpenVPNManagement {
 

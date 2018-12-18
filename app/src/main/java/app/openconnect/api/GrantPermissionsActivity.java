@@ -24,14 +24,14 @@
  * OpenSSL library.
  */
 
-package app.openconnect.api;
+package app.openconnect_gp.api;
 
 import org.acra.ACRA;
 import org.acra.ACRAConfiguration;
 import org.acra.ErrorReporter;
 
-import app.openconnect.R;
-import app.openconnect.core.OpenVpnService;
+import app.openconnect_gp.R;
+import app.openconnect_gp.core.OpenVpnService;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.VpnService;

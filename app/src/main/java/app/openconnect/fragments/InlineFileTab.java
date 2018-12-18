@@ -23,7 +23,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.fragments;
+package app.openconnect_gp.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -34,8 +34,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import app.openconnect.FileSelect;
-import app.openconnect.R;
+import app.openconnect_gp.FileSelect;
+import app.openconnect_gp.R;
 
 public class InlineFileTab extends Fragment
 {

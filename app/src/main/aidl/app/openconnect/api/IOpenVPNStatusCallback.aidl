@@ -1,4 +1,4 @@
-package app.openconnect.api;
+package app.openconnect_gp.api;
 
 /**
  * Example of a callback interface used by IRemoteService to send

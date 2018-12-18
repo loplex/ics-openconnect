@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package app.openconnect.api;
+package app.openconnect_gp.api;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -29,7 +29,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import app.openconnect.R;
+import app.openconnect_gp.R;
 
 
 public class ConfirmDialog extends Activity implements

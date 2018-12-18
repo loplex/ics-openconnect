@@ -24,7 +24,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.fragments;
+package app.openconnect_gp.fragments;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -37,8 +37,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import app.openconnect.R;
-import app.openconnect.core.AssetExtractor;
+import app.openconnect_gp.R;
+import app.openconnect_gp.core.AssetExtractor;
 
 public class FaqFragment extends Fragment  {
 

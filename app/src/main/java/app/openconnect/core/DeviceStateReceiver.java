@@ -22,7 +22,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.core;
+package app.openconnect_gp.core;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -37,7 +37,7 @@ public class DeviceStateReceiver extends BroadcastReceiver {
 
 	public static final String TAG = "OpenConnect";
 
-	public static final String PREF_CHANGED = "app.openconnect.PREF_CHANGED";
+	public static final String PREF_CHANGED = "app.openconnect_gp.PREF_CHANGED";
 
     private OpenVPNManagement mManagement;
 

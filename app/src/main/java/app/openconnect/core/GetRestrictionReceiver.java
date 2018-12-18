@@ -23,7 +23,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.core;
+package app.openconnect_gp.core;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -34,7 +34,7 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-import app.openconnect.R;
+import app.openconnect_gp.R;
 
 /**
  * Created by arne on 25.07.13.

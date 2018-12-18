@@ -22,18 +22,18 @@
  * OpenSSL library.
  */
 
-package app.openconnect.fragments;
+package app.openconnect_gp.fragments;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import app.openconnect.FileSelect;
-import app.openconnect.ConnectionEditorActivity;
-import app.openconnect.R;
-import app.openconnect.ShowTextPreference;
-import app.openconnect.TokenImportActivity;
-import app.openconnect.VpnProfile;
-import app.openconnect.core.ProfileManager;
+import app.openconnect_gp.FileSelect;
+import app.openconnect_gp.ConnectionEditorActivity;
+import app.openconnect_gp.R;
+import app.openconnect_gp.ShowTextPreference;
+import app.openconnect_gp.TokenImportActivity;
+import app.openconnect_gp.VpnProfile;
+import app.openconnect_gp.core.ProfileManager;
 
 import android.app.Dialog;
 import android.os.Bundle;

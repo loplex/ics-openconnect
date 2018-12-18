@@ -23,7 +23,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.fragments;
+package app.openconnect_gp.fragments;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -44,8 +44,8 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import app.openconnect.FileSelect;
-import app.openconnect.R;
+import app.openconnect_gp.FileSelect;
+import app.openconnect_gp.R;
 
 public class FileSelectionFragment extends ListFragment {
 

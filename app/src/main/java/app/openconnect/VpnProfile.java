@@ -24,7 +24,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect;
+package app.openconnect_gp;
 
 import java.util.Locale;
 import java.util.UUID;

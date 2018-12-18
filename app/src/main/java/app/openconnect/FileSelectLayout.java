@@ -23,9 +23,9 @@
  * OpenSSL library.
  */
 
-package app.openconnect;
+package app.openconnect_gp;
 
-import app.openconnect.core.X509Utils;
+import app.openconnect_gp.core.X509Utils;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;

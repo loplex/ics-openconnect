@@ -16,6 +16,7 @@ To help out with translations, please visit
 [this project's page on Transifex](https://www.transifex.com/projects/p/ics-openconnect/).
 
 ## Downloads and support
+## TODO: update projects links to this fork !!!
 
 Official releases are posted in the [XDA thread](http://forum.xda-developers.com/showthread.php?t=2616121) and on [Google Play](https://play.google.com/store/apps/details?id=app.openconnect).
 

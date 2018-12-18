@@ -23,7 +23,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.api;
+package app.openconnect_gp.api;
 
 import java.util.HashSet;
 import java.util.Set;

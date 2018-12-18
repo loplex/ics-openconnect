@@ -23,7 +23,7 @@
  * OpenSSL library.
  */
 
-package app.openconnect.api;
+package app.openconnect_gp.api;
 
 import android.os.Parcel;
 import android.os.Parcelable;
