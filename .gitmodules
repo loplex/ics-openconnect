@@ -1,6 +1,6 @@
 [submodule "external/openconnect"]
 	path = external/openconnect
-	url = https://github.com/loplex/openconnect-android.git
+	url = https://github.com/loplex/openconnect.git
 [submodule "external/stoken"]
 	path = external/stoken
 	url = https://github.com/loplex/stoken.git
